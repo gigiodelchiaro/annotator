@@ -1,0 +1,41 @@
+Inclua este jar no seu classpath e importe qualquer um de seus módulos com:
+
+- import ufpa.falabrasil.GraphemeToPhoneme;
+- import ufpa.falabrasil.StressVowel;
+- import ufpa.falabrasil.Syllabificator;
+- import ufpa.falabrasil.TextTool;
+- import ufpa.falabrasil.Cross;
+
+Para usa-lo no seu projeto
+
+
+Uso dos módulos:
+- GraphemeToPhoneme.g2p(String) Param:String é uma palavra do idioma Português
+	Brasileiro contendo apenas letras caixa baixa e hífens, o método retornará
+	uma String contendo os fonemas da String fornecida.
+- GraphemeToPhoneme.g2pLA(String) Param:String é uma palavra do idioma Português
+	Brasileiro contendo apenas letras caixa baixa e hífens, o método retornará
+	uma String formada apenas por caracteres ASCII contendo os fonemas da String
+	fornecida.
+- StressVowel.findStress(String) Param:String é uma palavra do idioma Português
+	Brasileiro contendo apenas letras caixa baixa e hífens, o método retornará
+	um Integer indicando a posição da vogal tônica da palavra.
+- Syllabificator.syllabs(String) Param:String é uma palavra do idioma Português
+	Brasileiro contendo apenas letras caixa baixa e hífens, o método retornará
+	uma String contendo as sílabas da palavra fornecida separadas por hífen.
+- TextTool.separaG2P(String) Param:String é uma palavra do idioma Português
+	Brasileiro contendo apenas letras caixa baixa e hífens, o método retornará
+	uma String contendo os fonemas da String fornecida separados silábicamente.
+- Cross.setInputAsArray(String[]) Param:String Array deve ter uma palavra em
+	cada índice.
+- Cross.setInputAsPhone(ArrayList<String>) Param:ArrayList deve ter apenas um 
+	fonema por linha.
+- Cross.setASCII(boolean) Param:boolean configura caso o resultado precise
+	conter apenas caracteres ASCII.
+- Cross.setThreads(int) Param:Integer configura quantos threads o Crossword deve
+	usar para o estágio da conversão de grafemas para fonemas.
+- Cross.getOutput() Retorna String[] com fonemas das palavras de entrada após 
+	passar pelo processador de crossword.
+- Cross.getCrossTextIndex() Retorna int[] com índices da Array de entrada, ou do
+	arquivo de texto pleno.
+- Cross.getInputText() Retorna o texto de entrada.

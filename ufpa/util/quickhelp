@@ -1,0 +1,47 @@
+Grupo FalaBrasil
+Biblioteca de utilitários
+
+Usage  1: java -jar falalib.jar -{v|s|g}          <PALAVRA>
+Usage  2: java -jar falalib.jar -{v|s|g}          <PALAVRA> -o <SAIDA>
+Usage  3: java -jar falalib.jar -{v|s|g}       -i <ENTRADA>
+Usage  4: java -jar falalib.jar -{v|s|g}       -i <ENTRADA> -o <SAIDA>
+Usage  5: java -jar falalib.jar -c{C}             <FRASE>
+Usage  6: java -jar falalib.jar -c{C}             <FRASE>   -o <SAIDA>
+Usage  7: java -jar falalib.jar -c{C}          -i <ENTRADA>
+Usage  8: java -jar falalib.jar -c{C}          -i <ENTRADA> -o <SAIDA>
+Usage  9: java -jar falalib.jar -{v|s|g}{c}{C} -i <ENTRADA> -t <NUM>
+Usage 10: java -jar falalib.jar -{v|s|g}{c}{C} -i <ENTRADA> -o <SAIDA> -t <NUM>
+
+  <PALAVRA>: palavra do Português Brasileiro em caixa baixa
+  <SAIDA>:   nome para o arquivo destino contendo o resultado do processamento
+  <ENTRADA>: nome do arquivo de entrada, deve conter uma palavra por linha
+  <FRASE>:   frase entre aspas, por exemplo: "a casa era amarela"
+  <NUM>:     número inteiro maior que 0
+
+Lista de flags:
+-i  --input    (caso entrada seja arquivo)
+-o  --output   (caso saída seja arquivo)
+-c  --cross    (caso crossword deva ser usado)
+-C  --vcross   (caso a saída do crossword deva ser detalhada)
+-a  --ascii    (caso a saída deva conter apenas caracteres ascii)
+-v  --vowel    (para usar identificador de vogal tônica)
+-s  --syllab   (para usar separador silábico)
+-g  --g2p      (para usar o conversor grafema fonema)
+-G  --g2p-s    (para receber fonemas silabicamente separados)
+-p  --progress (mostra uma barra de progresso)
+-t  --threads  (função multithread, para uso com -i{g|s|v})
+-e  --encoding (para usuário selecionar codificação do arquivo de entrada)
+-h  --help     (para exibir ajuda para desenvolvedores)
+
+Pelo menos uma flag "-g", "-s", "-v" ou "-c" deve ser usada
+
+Opções de encoding:
+0: UTF8, 1: ISO8859_15, 2: ISO8859_1, 3: Cp1252, 4: Cp1251, 5: SJIS
+
+Exemplo de uso:
+java -jar fb_nlplib.jar -vsg -i input.txt -o output.txt -e 3
+
+---------------------------------------------------------------------------------
+Para detalhes sobre a importação das funcionalidades do "fb_nlplib.jar" no seu
+projeto em java: 
+	java -jar fb_nlplib.jar --help
