@@ -1,27 +1,22 @@
-package ufpa.falabrasil;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 
-public class Syllabificator {
 	StressVowel STV = new StressVowel();
-	private String[] palavra;
-	private String saida;
-	private int comprimento;
-	private int nsilaba;
-	private int[] silIndices;
-	private String delimitador = "-";
-	private int indResto;
-	private String palavra0;
-	private String vogalTonica;
-	private int indexVogalTonica;
-	private ArrayList<String> composto = new ArrayList();
-	private ArrayList<Integer> tamCompostos = new ArrayList();
-	private ArrayList<String> tonicaComposto = new ArrayList();
-	private ArrayList<Integer> numTonicaComposto = new ArrayList();
+	 String[] palavra;
+	 String saida;
+	 int comprimento;
+	 int nsilaba;
+	 int[] silIndices;
+	 String delimitador = "-";
+	 int indResto;
+	 String palavra0;
+	 String vogalTonica;
+	 int indexVogalTonica;
+	 ArrayList<String> composto = new ArrayList();
+	 ArrayList<Integer> tamCompostos = new ArrayList();
+	 ArrayList<String> tonicaComposto = new ArrayList();
+	 ArrayList<Integer> numTonicaComposto = new ArrayList();
 
-	private void calling(String var1) {
+	  calling(String var1) {
 		this.palavra0 = var1;
 		this.composto = new ArrayList();
 		this.tamCompostos = new ArrayList();
@@ -43,18 +38,18 @@ public class Syllabificator {
 
 	}
 
-	private void updateVars() {
+	  updateVars() {
 		this.vogalTonica = this.STV.vogalTonica;
 		this.indexVogalTonica = this.STV.indexVogalTonica;
 		this.tonicaComposto = this.STV.tonicaComposto;
 		this.numTonicaComposto = this.STV.numTonicaComposto;
 	}
 
-	private int getIndex() {
+	 int getIndex() {
 		return this.indexVogalTonica;
 	}
 
-	public String syllabs(String var1) {
+	 String syllabs(String var1) {
 		var1 = var1.replace("ü", "u");
 		boolean var3 = false;
 		this.calling(var1);
@@ -562,7 +557,7 @@ public class Syllabificator {
 		return this.saida.replace("#", "");
 	}
 
-	private String caso01(int var1) {
+	 String caso01(int var1) {
 		String var2 = "";
 
 		int var3;
@@ -583,7 +578,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private String caso02(int var1) {
+	 String caso02(int var1) {
 		String var2 = "";
 
 		int var3;
@@ -604,7 +599,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private String caso03(int var1) {
+	 String caso03(int var1) {
 		String var2 = "";
 
 		int var3;
@@ -625,7 +620,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private String caso04(int var1) {
+	 String caso04(int var1) {
 		String var2 = "";
 
 		int var3;
@@ -646,7 +641,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private String caso05(int var1) {
+	 String caso05(int var1) {
 		String var2 = "";
 
 		int var3;
@@ -667,7 +662,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private String caso06(int var1) {
+	 String caso06(int var1) {
 		String var2 = "";
 
 		int var3;
@@ -687,7 +682,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private String excecao(int var1) {
+	 String excecao(int var1) {
 		String var2 = "";
 
 		int var4;
@@ -708,7 +703,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private String[] convertString2ArrayString(String var1) {
+	 String[] convertString2ArrayString(String var1) {
 		LinkedList var3 = new LinkedList();
 		var1 = "###" + var1 + "#########";
 
@@ -860,7 +855,7 @@ public class Syllabificator {
 		return var2;
 	}
 
-	private boolean isVowel(String var1) {
+	 boolean isVowel(String var1) {
 		String[] var2 = new String[]{"a", "e", "i", "u", "o", "á", "é", "í", "ó", "ú", "ã", "õ", "â", "ê", "ô", "à",
 				"ü", "y"};
 		String[] var3 = var2;
@@ -876,7 +871,7 @@ public class Syllabificator {
 		return false;
 	}
 
-	private boolean isVowel(int var1) {
+	 boolean isVowel(int var1) {
 		if (this.comprimento - var1 < 1) {
 			return false;
 		} else {
@@ -897,7 +892,7 @@ public class Syllabificator {
 		}
 	}
 
-	private boolean isSemivowel(int var1) {
+	 boolean isSemivowel(int var1) {
 		if (this.comprimento - var1 < 1) {
 			return false;
 		} else {
@@ -917,7 +912,7 @@ public class Syllabificator {
 		}
 	}
 
-	private boolean consoanteMuda(int var1) {
+	 boolean consoanteMuda(int var1) {
 		if (!this.isNasal(var1 + 1)) {
 			return (this.palavra[var1 + 1].equals("p") || this.palavra[var1 + 1].equals("g")
 					|| this.palavra[var1 + 1].equals("b") || this.palavra[var1 + 1].equals("f")
@@ -940,7 +935,7 @@ public class Syllabificator {
 		}
 	}
 
-	private boolean isConsonant(int var1) {
+	 boolean isConsonant(int var1) {
 		if (this.comprimento - var1 < 1) {
 			return false;
 		} else {
@@ -976,7 +971,7 @@ public class Syllabificator {
 		}
 	}
 
-	private boolean isOclusive(int var1) {
+	 boolean isOclusive(int var1) {
 		if (this.comprimento - var1 < 1) {
 			return false;
 		} else {
@@ -1014,7 +1009,7 @@ public class Syllabificator {
 		}
 	}
 
-	private boolean isFricative(int var1) {
+	 boolean isFricative(int var1) {
 		if (this.comprimento - var1 < 1) {
 			return false;
 		} else {
@@ -1048,7 +1043,7 @@ public class Syllabificator {
 		}
 	}
 
-	private boolean isLiquids(int var1) {
+	 boolean isLiquids(int var1) {
 		if (this.comprimento - var1 < 1) {
 			return false;
 		} else {
@@ -1063,7 +1058,7 @@ public class Syllabificator {
 		}
 	}
 
-	private boolean isNasal(int var1) {
+	 boolean isNasal(int var1) {
 		if (this.comprimento - var1 < 1) {
 			return false;
 		} else {
